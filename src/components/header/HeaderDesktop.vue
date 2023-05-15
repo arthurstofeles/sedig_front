@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <nav>
-      <img src="@/assets/img/logo_branco.svg" alt="Logo" @click="goToRoute('Home')" />
+      <img src="@/assets/img/logo.svg" alt="Logo" @click="goToRoute('Home')" />
       <ul>
         <li v-for="(link, index) in links" :key="index">
           <v-menu v-if="link.children.length" offset-y :open-on-hover="true">

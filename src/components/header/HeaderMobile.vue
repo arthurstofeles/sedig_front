@@ -1,7 +1,7 @@
 <template>
   <div>
     <header class="header">
-      <img src="@/assets/img/logo_branco.svg" alt="Logo" @click="goToRoute('Home')" />
+      <img src="@/assets/img/logo.svg" alt="Logo" @click="goToRoute('Home')" />
       <v-icon @click.stop="drawer = !drawer" color="white">mdi-menu</v-icon>
     </header>
     <v-navigation-drawer v-model="drawer" absolute right temporary class="pa-2">

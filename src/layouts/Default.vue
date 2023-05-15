@@ -1,7 +1,7 @@
 <template>
   <div>
-    <HeaderMobile :links="links" v-if="isMobile" />
-    <HeaderDesktop :links="links" v-else />
+    <!-- <HeaderMobile :links="links" v-if="isMobile" />
+    <HeaderDesktop :links="links" v-else /> -->
     <main class="pa-0 ma-0">
       <router-view />
     </main>
@@ -9,14 +9,14 @@
 </template>
 
 <script>
-import HeaderMobile from "@/components/header/HeaderMobile.vue";
-import HeaderDesktop from "@/components/header/HeaderDesktop.vue";
+// import HeaderMobile from "@/components/header/HeaderMobile.vue";
+// import HeaderDesktop from "@/components/header/HeaderDesktop.vue";
 export default {
   name: "DefaultLayout",
-  components: {
-    HeaderMobile,
-    HeaderDesktop,
-  },
+  // components: {
+  //   HeaderMobile,
+  //   HeaderDesktop,
+  // },
   data: () => ({
     isMobile: false,
     links: [
