@@ -1,12 +1,7 @@
 <template>
   <div>
     <Banner :isMobile="isMobile" />
-    <div
-      style="height: 80vh; background: #370ea3"
-      class="lighten-2 d-flex justify-center align-center display-1"
-    >
-      Comparativo
-    </div>
+    <Comparativo :isMobile="isMobile" />
     <div
       style="height: 80vh; background: #370ea3"
       class="lighten-3 d-flex justify-center align-center display-1"
@@ -22,9 +17,10 @@
 
 <script>
 import Banner from "@/components/landing-page/Banner.vue";
+import Comparativo from "@/components/landing-page/Comparativo.vue";
 export default {
   name: "HomeView",
-  components: { Banner },
+  components: { Banner, Comparativo },
   data: () => ({
     isMobile: false,
   }),
