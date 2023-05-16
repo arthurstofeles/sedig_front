@@ -4,7 +4,7 @@
     <Comparativo :isMobile="isMobile" />
     <Contato :isMobile="isMobile" />
     <QuemSomos />
-    <div style="height: 40vh" class="grey d-flex justify-center align-center display-1">Rodapé</div>
+    <Footer />
   </div>
 </template>
 
@@ -13,9 +13,10 @@ import Banner from "@/components/landing-page/Banner.vue";
 import Comparativo from "@/components/landing-page/Comparativo.vue";
 import Contato from "@/components/landing-page/Contato.vue";
 import QuemSomos from "@/components/landing-page/QuemSomos.vue";
+import Footer from "@/components/landing-page/Footer.vue";
 export default {
   name: "HomeView",
-  components: { Banner, Comparativo, Contato, QuemSomos },
+  components: { Banner, Comparativo, Contato, QuemSomos, Footer },
   data: () => ({
     isMobile: false,
   }),

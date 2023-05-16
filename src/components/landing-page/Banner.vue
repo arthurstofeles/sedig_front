@@ -93,7 +93,7 @@ export default {
 }
 .logo {
   width: 100%;
-  max-width: 313px;
+  max-width: 280px;
   margin-bottom: 64px;
   @media screen and (max-width: 768px) {
     max-width: 115px;
