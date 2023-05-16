@@ -33,7 +33,7 @@
             </li>
           </ul>
         </v-col>
-        <v-btn x-large rounded class="call-to-action sedig_blue--text mt-8 mx-auto" color="#FFC30D"
+        <v-btn x-large rounded class="call-to-action sedig_blue--text mt-10 mx-auto" color="#FFC30D"
           >comparar outros cenários</v-btn
         >
       </v-row>
@@ -63,7 +63,54 @@ export default {
 
 <style lang="scss" scoped>
 .comparativo {
-  background-color: #370ea3;
+  background: linear-gradient(
+    180deg,
+    rgba(55, 14, 163, 1) 0%,
+    rgba(55, 14, 163, 1) 88%,
+    rgba(255, 255, 255, 1) 88%,
+    rgba(255, 255, 255, 1) 100%
+  );
+  position: relative;
+  z-index: 1;
+  &:after {
+    content: "";
+    width: 100%;
+    max-height: 120px;
+    height: 100%;
+    background-image: url("../../assets/img/wave-bottom.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    position: absolute;
+    bottom: -36px;
+    left: 0;
+    z-index: -1;
+    transform: rotate(180deg);
+    @media screen and (min-width: 600px) {
+      bottom: -48px;
+    }
+    @media screen and (min-width: 768px) {
+      bottom: -60px;
+      max-height: 180px;
+    }
+    @media screen and (min-width: 1025px) {
+      bottom: -180px;
+      max-height: 240px;
+    }
+    @media screen and (min-width: 1540px) {
+      bottom: -248px;
+      max-height: 300px;
+    }
+  }
+  @media screen and (min-width: 1025px) {
+    background: linear-gradient(
+      180deg,
+      rgba(55, 14, 163, 1) 0%,
+      rgba(55, 14, 163, 1) 95%,
+      rgba(255, 255, 255, 1) 95%,
+      rgba(255, 255, 255, 1) 100%
+    );
+  }
   h2 {
     color: #ffc30d;
     font-weight: 900;

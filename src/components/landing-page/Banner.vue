@@ -63,7 +63,7 @@ export default {
   &:after {
     content: "";
     width: 100%;
-    max-height: 200px;
+    max-height: 240px;
     height: 100%;
     background-image: url("../../assets/img/wave-bottom.png");
     background-size: cover;
@@ -73,6 +73,9 @@ export default {
     bottom: -1px;
     left: 0;
     z-index: -1;
+    @media screen and (min-width: 1540px) {
+      max-height: 300px;
+    }
   }
   .container {
     position: relative;

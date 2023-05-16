@@ -3,7 +3,7 @@
     <Banner :isMobile="isMobile" />
     <Comparativo :isMobile="isMobile" />
     <div
-      style="height: 80vh; background: #370ea3"
+      style="height: 80vh; background: #fff"
       class="lighten-3 d-flex justify-center align-center display-1"
     >
       Contato
