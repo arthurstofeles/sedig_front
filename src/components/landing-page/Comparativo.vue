@@ -33,7 +33,12 @@
             </li>
           </ul>
         </v-col>
-        <v-btn x-large rounded class="call-to-action sedig_blue--text mt-10 mx-auto" color="#FFC30D"
+        <v-btn
+          x-large
+          rounded
+          class="call-to-action sedig_blue--text mt-10 mx-auto"
+          color="#FFC30D"
+          to="/criar-conta"
           >comparar outros cenários</v-btn
         >
       </v-row>

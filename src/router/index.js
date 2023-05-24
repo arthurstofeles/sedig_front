@@ -15,6 +15,21 @@ const routes = [
       },
     ],
   },
+  {
+    path: "/criar-conta",
+    name: "CriarConta",
+    component: () => import(/* webpackChunkName: "CriarConta" */ "../views/CriarConta.vue"),
+  },
+  {
+    path: "/login",
+    name: "Login",
+    component: () => import(/* webpackChunkName: "Login" */ "../views/Login.vue"),
+  },
+  {
+    path: "/nova-senha",
+    name: "NovaSenha",
+    component: () => import(/* webpackChunkName: "NovaSenha" */ "../views/NovaSenha.vue"),
+  },
 ];
 
 const router = new VueRouter({

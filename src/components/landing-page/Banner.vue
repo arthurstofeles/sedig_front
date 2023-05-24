@@ -15,7 +15,12 @@
             <span>vantagens da SE digital</span> vão além da economia na implementação. Confira no
             nosso simulador!
           </p>
-          <v-btn x-large rounded class="call-to-action sedig_blue--text" color="#00D745"
+          <v-btn
+            x-large
+            rounded
+            class="call-to-action sedig_blue--text"
+            color="#00D745"
+            to="/criar-conta"
             >abrir simulador</v-btn
           >
         </v-col>
