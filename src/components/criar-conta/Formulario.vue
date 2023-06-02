@@ -11,7 +11,7 @@
             </p>
             <v-form ref="form" v-model="valid" lazy-validation class="mt-6">
               <v-text-field
-                v-model="formData.nome"
+                v-model="formData.first_name"
                 label="Nome"
                 required
                 :rules="genericRules"
@@ -25,6 +25,14 @@
                 color="#370ea3"
               ></v-text-field>
               <v-text-field
+                v-model="formData.phone"
+                label="Telefone (com WhatsApp)"
+                required
+                :rules="genericRules"
+                color="#370ea3"
+                v-mask="'(##) #####-####'"
+              ></v-text-field>
+              <v-text-field
                 :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                 :type="showPassword ? 'text' : 'password'"
                 v-model="formData.password"
@@ -34,16 +42,6 @@
                 color="#370ea3"
                 @click:append="showPassword = !showPassword"
               ></v-text-field>
-              <v-text-field
-                :append-icon="showConfirmPassword ? 'mdi-eye' : 'mdi-eye-off'"
-                :type="showConfirmPassword ? 'text' : 'password'"
-                v-model="formData.confirmaSenha"
-                label="Repetir Senha"
-                required
-                :rules="genericRules"
-                color="#370ea3"
-                @click:append="showConfirmPassword = !showConfirmPassword"
-              ></v-text-field>
               <p class="my-4">Já tem conta? <router-link to="/login">Entrar.</router-link></p>
               <v-btn
                 x-large
@@ -52,6 +50,7 @@
                 color="#370EA3"
                 @click="send"
                 block
+                :loading="loading"
                 >Criar Conta</v-btn
               >
             </v-form>
@@ -65,15 +64,20 @@
 <script>
 export default {
   name: "FormularioCriarConta",
+  props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     formData: {
-      nome: "",
+      first_name: "",
       email: "",
-      senha: "",
-      confirmaSenha: "",
+      password: "",
+      phone: "",
     },
     showPassword: false,
-    showConfirmPassword: false,
     valid: false,
     emailRules: [
       (v) => !!v || "Esse campo é obrigatório",
@@ -87,7 +91,7 @@ export default {
     },
     send() {
       if (this.formValid) {
-        console.log(this.formData);
+        this.$emit("criar", this.formData);
       }
     },
   },

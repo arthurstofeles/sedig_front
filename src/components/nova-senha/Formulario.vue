@@ -31,6 +31,7 @@
                 color="#370EA3"
                 @click="send"
                 block
+                :loading="loading"
                 >Cadastrar nova senha</v-btn
               >
             </v-form>
@@ -44,10 +45,17 @@
 <script>
 export default {
   name: "FormularioNovaSenha",
+  props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     formData: {
       email: "",
-      senha: "",
+      password: "",
+      token: "",
     },
     showPassword: false,
     valid: false,
@@ -57,12 +65,16 @@ export default {
     ],
     genericRules: [(v) => !!v || "Esse campo é obrigatório"],
   }),
+  created() {
+    this.formData.token = this.$route.query.token;
+  },
   methods: {
     validate() {
       this.$refs.form.validate();
     },
     send() {
       if (this.formValid) {
+        this.$emit("criar", this.formData);
         console.log(this.formData);
       }
     },

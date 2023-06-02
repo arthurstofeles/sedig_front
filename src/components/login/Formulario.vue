@@ -28,7 +28,7 @@
                 @click:append="showPassword = !showPassword"
               ></v-text-field>
               <p class="my-4">
-                Esqueceu a sua senha? <router-link to="/nova-senha">Recuperar senha.</router-link>
+                Esqueceu a sua senha? <a @click="$emit('recuperar')">Recuperar senha.</a>
               </p>
               <p class="my-4">
                 Não tem conta ainda? <router-link to="/criar-conta">Cadastrar.</router-link>
@@ -40,6 +40,7 @@
                 color="#370EA3"
                 @click="send"
                 block
+                :loading="loading"
                 >Entrar</v-btn
               >
             </v-form>
@@ -53,10 +54,16 @@
 <script>
 export default {
   name: "FormularioLogin",
+  props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     formData: {
       email: "",
-      senha: "",
+      password: "",
     },
     showPassword: false,
     valid: false,
@@ -72,7 +79,7 @@ export default {
     },
     send() {
       if (this.formValid) {
-        console.log(this.formData);
+        this.$emit("login", this.formData);
       }
     },
   },

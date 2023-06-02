@@ -1,23 +1,59 @@
 <template>
   <div class="criar-conta">
     <router-link to="/"> <img src="@/assets/img/logo.svg" alt="Logo Sedig" /></router-link>
-    <FormularioNovaSenha />
+    <FormularioNovaSenha @criar="criar" :loading="loading" />
+    <AlertError :alertError="error" :messageError="message" />
+    <AlertSuccess
+      :dialog="sucess"
+      :dialogMessage="message"
+      dialogTextButton="REalizarLogin"
+      @close="sucess = false"
+    />
   </div>
 </template>
 
 <script>
+import { novaSenha } from "@/utils/services.js";
+import AlertError from "@/components/custom/AlertError";
+import AlertSuccess from "@/components/custom/AlertSuccess";
 import FormularioNovaSenha from "@/components/nova-senha/Formulario.vue";
 export default {
   name: "NovaSenha",
-  components: { FormularioNovaSenha },
+  components: { FormularioNovaSenha, AlertError, AlertSuccess },
   data: () => ({
     isMobile: false,
+    loading: false,
+    error: false,
+    sucess: false,
+    message: "Ocorreu um erro inesperado.",
   }),
   created() {
+    console.log(this.$route.query.token);
     window.addEventListener("resize", () => {
       this.isMobile = window.innerWidth <= 768;
     });
     this.isMobile = window.innerWidth <= 768;
+    if (!this.$route.query.token) {
+      this.$router.push({ name: "Login" });
+    }
+  },
+  methods: {
+    async criar(event) {
+      this.loading = true;
+      this.sucess = false;
+      this.error = false;
+      try {
+        await novaSenha(event).then(() => {
+          this.loading = false;
+          this.sucess = true;
+          this.message = "Nova senha criada com sucesso!";
+        });
+      } catch (err) {
+        this.error = true;
+        this.loading = false;
+        console.error(err);
+      }
+    },
   },
 };
 </script>
