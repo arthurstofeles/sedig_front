@@ -28,8 +28,8 @@
           </li>
         </ul>
       </nav>
-      <v-btn class="ma-2" color="fmq_black" outlined solo width="220px">
-        Login
+      <v-btn class="ma-2" color="fmq_black" outlined solo width="220px" @click="logout">
+        Sair
         <!-- <v-icon right> mdi-exit-to-app </v-icon> -->
       </v-btn>
     </v-navigation-drawer>
@@ -52,6 +52,9 @@ export default {
     goToRoute(route) {
       this.$router.push({ name: route });
     },
+    logout() {
+      this.$emit("logout");
+    },
   },
   computed: {
     routeName() {
@@ -66,7 +69,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #343a40;
+  background-color: transparent;
   padding: 16px;
   img {
     max-width: 100px;

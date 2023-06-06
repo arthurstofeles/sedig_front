@@ -36,6 +36,12 @@ export default {
     formModal: false,
     loadingModal: false,
   }),
+  beforeCreate() {
+    console.log(this.$store.state.loggedIn);
+    if (this.$store.state.loggedIn === "logado") {
+      this.$router.push({ path: "/simulador" });
+    }
+  },
   created() {
     window.addEventListener("resize", () => {
       this.isMobile = window.innerWidth <= 768;
@@ -47,8 +53,11 @@ export default {
       this.loading = true;
       this.error = false;
       try {
-        await login(event).then(() => {
+        await login(event).then((resp) => {
           this.loading = false;
+          this.$router.push({ path: "/simulador" });
+          window.localStorage.token = `Bearer ${resp.token}`;
+          this.$store.dispatch("setLoggedIn", true);
         });
       } catch (err) {
         this.error = true;

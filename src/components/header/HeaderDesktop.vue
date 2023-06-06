@@ -24,8 +24,8 @@
         </li>
       </ul>
     </nav>
-    <v-btn color="white" outlined solo @click="logout">
-      Login
+    <v-btn class="ml-4" color="white" outlined solo @click="logout">
+      Sair
       <!-- <v-icon right> mdi-exit-to-app </v-icon> -->
     </v-btn>
   </header>
@@ -45,7 +45,7 @@ export default {
       this.$router.push({ name: route });
     },
     logout() {
-      this.$router.push("/logincheck");
+      this.$emit("logout");
     },
   },
   computed: {
@@ -61,12 +61,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #343a40;
+  background-color: transparent;
   padding: 16px;
   nav {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     width: 100%;
     img {
       max-width: 100px;

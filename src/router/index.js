@@ -6,14 +6,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    component: () => import(/* webpackChunkName: "Default" */ "@/layouts/Default.vue"),
-    children: [
-      {
-        path: "/",
-        name: "Home",
-        component: () => import(/* webpackChunkName: "Home" */ "../views/Home.vue"),
-      },
-    ],
+    name: "Home",
+    component: () => import(/* webpackChunkName: "Home" */ "../views/Home.vue"),
   },
   {
     path: "/criar-conta",
@@ -29,6 +23,11 @@ const routes = [
     path: "/nova-senha",
     name: "NovaSenha",
     component: () => import(/* webpackChunkName: "NovaSenha" */ "../views/NovaSenha.vue"),
+  },
+  {
+    path: "/simulador",
+    name: "Simulador",
+    component: () => import(/* webpackChunkName: "Simulador" */ "../views/Simulador.vue"),
   },
 ];
 
