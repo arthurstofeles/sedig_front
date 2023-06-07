@@ -33,7 +33,7 @@ export default {
     links: [
       {
         title: "PEDIR ORÇAMENTO",
-        route: "",
+        route: "PedirOrcamento",
         children: [],
       },
     ],

@@ -36,9 +36,8 @@
               <v-btn
                 x-large
                 rounded
-                class="enviar sedig_green--text mt-6"
-                color="#370EA3"
-                @click="send"
+                class="enviar sedig_green mt-6"
+                color="sedig_blue--text"
                 block
                 :loading="loading"
                 >Comparar</v-btn

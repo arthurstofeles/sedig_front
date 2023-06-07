@@ -57,7 +57,7 @@ export default {
           this.loading = false;
           this.$router.push({ path: "/simulador" });
           window.localStorage.token = `Bearer ${resp.token}`;
-          this.$store.dispatch("setLoggedIn", true);
+          this.$store.dispatch("setLoggedIn", "logado");
         });
       } catch (err) {
         this.error = true;

@@ -1,8 +1,8 @@
 <template>
   <div class="comparativo">
     <v-container>
+      <h2 class="mt-4">Resultado Simulação Comparativa</h2>
       <v-row no-gutters>
-        <h2>Resultado Simulação Comparativa</h2>
         <v-col cols="6" class="digital">
           <h3>Subestação Digital</h3>
           <ul>
@@ -22,6 +22,14 @@
           </ul>
         </v-col>
       </v-row>
+      <v-btn
+        x-large
+        rounded
+        class="enviar sedig_green my-6 d-flex mx-auto"
+        color="sedig_blue--text"
+        to="/pedir-orcamento"
+        >Enviar para orçamento</v-btn
+      >
     </v-container>
   </div>
 </template>

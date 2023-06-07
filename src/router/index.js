@@ -29,6 +29,21 @@ const routes = [
     name: "Simulador",
     component: () => import(/* webpackChunkName: "Simulador" */ "../views/Simulador.vue"),
   },
+  {
+    path: "/pedir-orcamento",
+    name: "PedirOrcamento",
+    component: () => import(/* webpackChunkName: "PedirOrcamento" */ "../views/PedirOrcamento.vue"),
+  },
+  {
+    path: "/obrigado",
+    name: "Obrigado",
+    component: () => import(/* webpackChunkName: "Obrigado" */ "../views/Obrigado.vue"),
+  },
+  {
+    path: "/:notFound",
+    name: "NotFound",
+    component: () => import(/* webpackChunkName: "NotFound" */ "../views/NotFound.vue"),
+  },
 ];
 
 const router = new VueRouter({
