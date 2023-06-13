@@ -2,8 +2,8 @@
   <v-dialog :value="dialog" width="auto" persistent>
     <v-card>
       <v-card-title class="d-flex justify-center flex-column">
-        <v-icon x-large color="green" class="mb-6">mdi-check-circle-outline</v-icon>
-        <span class="mb-2">{{ dialogMessage }}</span>
+        <v-icon x-large color="#370EA3" class="mb-6">mdi-check-circle-outline</v-icon>
+        <span class="mb-2 text-center">{{ dialogMessage }}</span>
       </v-card-title>
       <v-card-actions class="d-flex justify-center">
         <v-btn

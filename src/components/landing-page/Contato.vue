@@ -22,7 +22,7 @@
               color="#370ea3"
             ></v-text-field>
             <v-text-field
-              v-model="formData.numero"
+              v-model="formData.phone"
               label="Telefone (com WhatsApp)"
               required
               :rules="genericRules"
@@ -38,6 +38,7 @@
           color="#370EA3"
           outlined
           @click="send"
+          :loading="loading"
           >Solicitar Contato</v-btn
         >
       </v-row>
@@ -48,9 +49,15 @@
 <script>
 export default {
   name: "Contato",
+  props: {
+    loading: {
+      type: Boolean,
+      default: false,
+    },
+  },
   data: () => ({
     formData: {
-      numero: "",
+      phone: "",
       email: "",
     },
     valid: false,
@@ -66,8 +73,13 @@ export default {
     },
     send() {
       if (this.formValid) {
-        console.log(this.formData);
+        this.$emit("contato", this.formData);
       }
+    },
+    reset() {
+      this.formData.phone = "";
+      this.formData.email = "";
+      this.$refs.form.reset();
     },
   },
   computed: {

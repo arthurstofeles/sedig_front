@@ -1,20 +1,44 @@
 <template>
   <div class="orcamento">
     <Headers />
-    <FormularioOrcamento />
+    <FormularioOrcamento :loading="loading" @contato="contato" />
+    <AlertError :alertError="error" :messageError="message" />
   </div>
 </template>
 
 <script>
+import { solicitarContato } from "@/utils/services";
+import AlertError from "@/components/custom/AlertError";
 import FormularioOrcamento from "@/components/pedir-orcamento/Formulario.vue";
 import Headers from "@/layouts/Headers.vue";
 export default {
   name: "PedirOrcamento",
-  components: { Headers, FormularioOrcamento },
+  components: { Headers, FormularioOrcamento, AlertError },
+  data: () => ({
+    loading: false,
+    error: false,
+    message: "Ocorreu um erro",
+  }),
   beforeCreate() {
     if (this.$store.state.loggedIn === "deslogado") {
       this.$router.push({ path: "/login" });
     }
+  },
+  methods: {
+    async contato(event) {
+      this.error = false;
+      this.loading = true;
+      try {
+        await solicitarContato(event).then(() => {
+          this.$router.push({ name: "Obrigado" });
+        });
+        this.loading = false;
+      } catch (e) {
+        this.loading = false;
+        this.error = true;
+        this.message = e.response.data.message;
+      }
+    },
   },
 };
 </script>

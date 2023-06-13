@@ -41,6 +41,7 @@
           color="sedig_blue"
           @click="send"
           block
+          :loading="loading"
           >Solicitar orçamento</v-btn
         >
       </v-row>
@@ -76,7 +77,7 @@ export default {
     },
     send() {
       if (this.formValid) {
-        console.log(this.formData);
+        this.$emit("contato", this.formData);
       }
     },
   },

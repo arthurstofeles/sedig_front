@@ -20,3 +20,8 @@ export const novaSenha = async (payload) => {
   const { data } = await apiInstance.post(ENDPOINTS.NOVA_SENHA, payload);
   return data;
 };
+
+export const solicitarContato = async (payload) => {
+  const { data } = await apiInstance.post(ENDPOINTS.LEAD, payload);
+  return data;
+};
