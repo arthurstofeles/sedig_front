@@ -2,26 +2,35 @@
   <div class="comparativo">
     <v-container>
       <h2 class="mt-4">Resultado Simulação Comparativa</h2>
-      <v-row no-gutters>
-        <v-col cols="6" class="digital">
-          <h3>Subestação Digital</h3>
-          <ul>
-            <li class="d-flex align-start mb-4" v-for="(item, index) in digitalList" :key="index">
-              <v-icon class="mr-2 mt-2" color="#ffc30d"> mdi-check-circle </v-icon>
-              <span>{{ item }}</span>
-            </li>
-          </ul>
-        </v-col>
-        <v-col cols="6" class="convencional">
-          <h3>Subestação Convencional</h3>
-          <ul>
-            <li class="d-flex align-start mb-4" v-for="(item, index) in digitalList" :key="index">
-              <v-icon class="mr-2 mt-2" color="#ffffff"> mdi-close-circle </v-icon>
-              <span>{{ item }}</span>
-            </li>
-          </ul>
-        </v-col>
-      </v-row>
+      <div class="rounded-xl pa-6 white">
+        <v-simple-table>
+          <template v-slot:default>
+            <thead>
+              <tr>
+                <th class="text-left">Items¹</th>
+                <th class="text-left">Quantidade</th>
+                <th class="text-left">Tradicional (R$)</th>
+                <th class="text-left">Digital (R$)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="item in results" :key="item.name">
+                <td class="font-weight-medium sedig_green--text">{{ item.name }}</td>
+                <td>{{ item.quantidade }}</td>
+                <td>{{ item.tradicional }}</td>
+                <td class="font-weight-black sedig_blue--text subtitle-1">{{ item.digital }}</td>
+              </tr>
+            </tbody>
+          </template>
+        </v-simple-table>
+        <p class="caption text-center mb-1 mt-6">
+          ¹ Os módulos de infraestrutura de manobra estão considerados junto com os módulos de
+          conexão.
+        </p>
+        <p class="caption text-center">
+          ² O MIG contempla as parcelas referentes aos pátios 230 e 138 kV.
+        </p>
+      </div>
       <v-btn
         x-large
         rounded
@@ -38,11 +47,61 @@
 export default {
   name: "Comparativo",
   data: () => ({
-    digitalList: [
-      "Custo de implementação médio: R$ 500.000,00",
-      "Norem ipsum dolor sit amet, consectetur adipiscing elit. ",
-      "Norem ipsum dolor sit amet, consectetur adipiscing elit. ",
-      "Norem ipsum dolor sit amet, consectetur adipiscing elit. ",
+    results: [
+      {
+        name: "MIG²",
+        quantidade: "1",
+        tradicional: "7.970.000,00",
+        digital: "7.700.000,00",
+      },
+      {
+        name: "IB 230",
+        quantidade: "1",
+        tradicional: "4.580.000,00",
+        digital: "4.350.000,00",
+      },
+      {
+        name: "EL 230",
+        quantidade: "2",
+        tradicional: "6.320.000,00",
+        digital: "6.020.000,00",
+      },
+      {
+        name: "CT 230",
+        quantidade: "2",
+        tradicional: "6.320.000,00",
+        digital: "6.020.000,00",
+      },
+      {
+        name: "AT",
+        quantidade: "2",
+        tradicional: "8.500.000,00",
+        digital: "8.500.000,00",
+      },
+      {
+        name: "CT 138",
+        quantidade: "2",
+        tradicional: "4.030.000,00",
+        digital: "3.810.000,00",
+      },
+      {
+        name: "EL 138",
+        quantidade: "1",
+        tradicional: "4.230.000,00",
+        digital: "4.010.000,00",
+      },
+      {
+        name: "IB 138",
+        quantidade: "1",
+        tradicional: "3.120.000,00",
+        digital: "2.940.000,00",
+      },
+      {
+        name: "Total",
+        quantidade: "*",
+        tradicional: "69.400.000,00",
+        digital: "66.900.000,00",
+      },
     ],
   }),
 };
@@ -60,70 +119,8 @@ export default {
       line-height: 22px;
     }
   }
-  .digital {
-    border: 2px solid #ffc30d;
-    padding: 16px;
-    border-radius: 0px 32px 32px 0px;
-    @media screen and (max-width: 768px) {
-      padding: 8px;
-    }
-    h3 {
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 2;
-      color: #ffc30d;
-      border-bottom: 2px solid #ffc30d;
-      margin-bottom: 16px;
-      @media screen and (max-width: 768px) {
-        font-size: 12px;
-      }
-    }
-    ul {
-      list-style: none;
-      margin: 0px;
-      color: #ffc30d;
-      padding: 0px;
-      font-weight: 300;
-      font-size: 24px;
-      line-height: 1.4;
-      @media screen and (max-width: 768px) {
-        font-size: 12px;
-        line-height: 15px;
-      }
-    }
-  }
-  .convencional {
-    border: 2px solid #ffffff;
-    border-left: none;
-    padding: 16px;
-    border-radius: 0px 32px 32px 0px;
-    @media screen and (max-width: 768px) {
-      padding: 8px;
-    }
-    h3 {
-      font-weight: 600;
-      font-size: 24px;
-      line-height: 2;
-      color: #ffffff;
-      border-bottom: 2px solid #ffffff;
-      margin-bottom: 16px;
-      @media screen and (max-width: 768px) {
-        font-size: 12px;
-      }
-    }
-    ul {
-      list-style: none;
-      margin: 0px;
-      color: #ffffff;
-      padding: 0px;
-      font-weight: 300;
-      font-size: 24px;
-      line-height: 1.4;
-      @media screen and (max-width: 768px) {
-        font-size: 12px;
-        line-height: 15px;
-      }
-    }
+  tbody > tr:nth-child(9) {
+    background-color: #f2f2f2;
   }
 }
 </style>

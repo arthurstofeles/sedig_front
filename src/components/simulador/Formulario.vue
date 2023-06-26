@@ -10,29 +10,125 @@
         <v-col :sm="12" :md="12" class="mx-auto">
           <div class="rounded-xl pa-6 white">
             <v-form ref="form" v-model="valid" lazy-validation class="mt-6">
-              <div class="d-flex justify-space-between">
-                <span class="caption">Quantidade de Vãos</span>
-                <span class="caption">10.234m2</span>
-              </div>
+              <v-subheader class="pl-0 mb-6"> Entrada de linha 230 kV </v-subheader>
               <v-slider
-                hint="100m2"
                 persistent-hint
-                v-model="formData.params"
-                :max="2000"
-                :min="2"
-                step="200"
+                v-model="formData.el_230"
+                :max="10"
+                :min="0"
+                step="1"
                 ticks="always"
-                tick-size="2"
+                tick-size="4"
                 color="#00D745"
                 track-color="#E6E0E9"
                 thumb-color="#00D745"
+                thumb-label="always"
               >
                 <template v-slot:thumb-label>
                   <v-icon dark class="caption">
-                    {{ formData.params }}
+                    {{ formData.el_230 }}
                   </v-icon>
                 </template>
               </v-slider>
+
+              <v-subheader class="pl-0 mb-6"> Conexão de transformador 230 kV </v-subheader>
+              <v-slider
+                persistent-hint
+                v-model="formData.at"
+                :max="5"
+                :min="0"
+                step="1"
+                ticks="always"
+                tick-size="4"
+                color="#00D745"
+                track-color="#E6E0E9"
+                thumb-color="#00D745"
+                thumb-label="always"
+              >
+                <template v-slot:thumb-label>
+                  <v-icon dark class="caption">
+                    {{ formData.at }}
+                  </v-icon>
+                </template>
+              </v-slider>
+
+              <v-subheader class="pl-0 mb-6">
+                Autotransformador 230-138-13,8 kV, 40 MVA
+              </v-subheader>
+              <v-slider
+                persistent-hint
+                v-model="formData.at"
+                :max="5"
+                :min="0"
+                step="1"
+                ticks="always"
+                tick-size="4"
+                color="#00D745"
+                track-color="#E6E0E9"
+                thumb-color="#00D745"
+                thumb-label="always"
+              >
+                <template v-slot:thumb-label>
+                  <v-icon dark class="caption">
+                    {{ formData.at }}
+                  </v-icon>
+                </template>
+              </v-slider>
+
+              <v-subheader class="pl-0 mb-6"> Entrada de linha 138 kV </v-subheader>
+              <v-slider
+                persistent-hint
+                v-model="formData.el_138"
+                :max="20"
+                :min="0"
+                step="1"
+                ticks="always"
+                tick-size="4"
+                color="#00D745"
+                track-color="#E6E0E9"
+                thumb-color="#00D745"
+                thumb-label="always"
+              >
+                <template v-slot:thumb-label>
+                  <v-icon dark class="caption">
+                    {{ formData.at }}
+                  </v-icon>
+                </template>
+              </v-slider>
+
+              <v-subheader class="pl-0 mb-6"> Conexão de transformador 138 kV </v-subheader>
+              <v-slider
+                persistent-hint
+                v-model="formData.at"
+                :max="5"
+                :min="0"
+                step="1"
+                ticks="always"
+                tick-size="4"
+                color="#00D745"
+                track-color="#E6E0E9"
+                thumb-color="#00D745"
+                thumb-label="always"
+              >
+                <template v-slot:thumb-label>
+                  <v-icon dark class="caption">
+                    {{ formData.at }}
+                  </v-icon>
+                </template>
+              </v-slider>
+
+              <v-switch
+                v-model="formData.ib_230"
+                label="Interligação de barras 230 kV, barra dupla 4 chaves"
+                color="sedig_green"
+              ></v-switch>
+
+              <v-switch
+                v-model="formData.ib_138"
+                label="Interligação de barras 138 kV, barra principal e transferência."
+                color="sedig_green"
+              ></v-switch>
+
               <v-btn
                 x-large
                 rounded
@@ -61,7 +157,14 @@ export default {
   },
   data: () => ({
     formData: {
-      params: "",
+      mig: 1,
+      ib_230: 1,
+      el_230: 2,
+      ct_230: null,
+      at: 2,
+      ct_138: null,
+      el_138: 1,
+      ib_138: 1,
     },
     valid: false,
     emailRules: [
