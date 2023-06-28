@@ -75,7 +75,6 @@ export default {
     send() {
       if (this.formValid) {
         this.$emit("criar", this.formData);
-        console.log(this.formData);
       }
     },
   },

@@ -28,7 +28,6 @@ export default {
     message: "Ocorreu um erro inesperado.",
   }),
   created() {
-    console.log(this.$route.query.token);
     window.addEventListener("resize", () => {
       this.isMobile = window.innerWidth <= 768;
     });

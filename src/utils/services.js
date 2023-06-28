@@ -25,3 +25,8 @@ export const solicitarContato = async (payload) => {
   const { data } = await apiInstance.post(ENDPOINTS.LEAD, payload);
   return data;
 };
+
+export const resultadoSimulacao = async (payload) => {
+  const { data } = await apiInstance.post(ENDPOINTS.RESULT, payload);
+  return data;
+};

@@ -63,7 +63,6 @@ export default {
     send() {
       if (this.formValid) {
         this.$emit("recuperar", this.formData);
-        console.log(this.formData);
       }
     },
   },

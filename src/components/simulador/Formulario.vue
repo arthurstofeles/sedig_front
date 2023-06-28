@@ -13,7 +13,7 @@
               <v-subheader class="pl-0 mb-6"> Entrada de linha 230 kV </v-subheader>
               <v-slider
                 persistent-hint
-                v-model="formData.el_230"
+                v-model="formData.EL230"
                 :max="10"
                 :min="0"
                 step="1"
@@ -26,7 +26,7 @@
               >
                 <template v-slot:thumb-label>
                   <v-icon dark class="caption">
-                    {{ formData.el_230 }}
+                    {{ formData.EL230 }}
                   </v-icon>
                 </template>
               </v-slider>
@@ -34,7 +34,7 @@
               <v-subheader class="pl-0 mb-6"> Conexão de transformador 230 kV </v-subheader>
               <v-slider
                 persistent-hint
-                v-model="formData.at"
+                v-model="formData.AT"
                 :max="5"
                 :min="0"
                 step="1"
@@ -47,7 +47,7 @@
               >
                 <template v-slot:thumb-label>
                   <v-icon dark class="caption">
-                    {{ formData.at }}
+                    {{ formData.AT }}
                   </v-icon>
                 </template>
               </v-slider>
@@ -57,7 +57,7 @@
               </v-subheader>
               <v-slider
                 persistent-hint
-                v-model="formData.at"
+                v-model="formData.AT"
                 :max="5"
                 :min="0"
                 step="1"
@@ -70,7 +70,7 @@
               >
                 <template v-slot:thumb-label>
                   <v-icon dark class="caption">
-                    {{ formData.at }}
+                    {{ formData.AT }}
                   </v-icon>
                 </template>
               </v-slider>
@@ -78,7 +78,7 @@
               <v-subheader class="pl-0 mb-6"> Entrada de linha 138 kV </v-subheader>
               <v-slider
                 persistent-hint
-                v-model="formData.el_138"
+                v-model="formData.EL138"
                 :max="20"
                 :min="0"
                 step="1"
@@ -91,7 +91,7 @@
               >
                 <template v-slot:thumb-label>
                   <v-icon dark class="caption">
-                    {{ formData.at }}
+                    {{ formData.EL138 }}
                   </v-icon>
                 </template>
               </v-slider>
@@ -99,7 +99,7 @@
               <v-subheader class="pl-0 mb-6"> Conexão de transformador 138 kV </v-subheader>
               <v-slider
                 persistent-hint
-                v-model="formData.at"
+                v-model="formData.AT"
                 :max="5"
                 :min="0"
                 step="1"
@@ -112,32 +112,34 @@
               >
                 <template v-slot:thumb-label>
                   <v-icon dark class="caption">
-                    {{ formData.at }}
+                    {{ formData.AT }}
                   </v-icon>
                 </template>
               </v-slider>
 
               <v-switch
-                v-model="formData.ib_230"
+                v-model="formData.EL230"
                 label="Interligação de barras 230 kV, barra dupla 4 chaves"
                 color="sedig_green"
               ></v-switch>
 
               <v-switch
-                v-model="formData.ib_138"
+                v-model="formData.IB138"
                 label="Interligação de barras 138 kV, barra principal e transferência."
                 color="sedig_green"
               ></v-switch>
 
-              <v-btn
-                x-large
-                rounded
-                class="enviar sedig_green mt-6"
-                color="sedig_blue--text"
-                block
-                :loading="loading"
-                >Comparar</v-btn
-              >
+              <div class="d-flex">
+                <v-btn
+                  x-large
+                  rounded
+                  class="enviar sedig_green mt-6 mx-auto px-10"
+                  color="sedig_blue--text"
+                  :loading="loading"
+                  @click="send"
+                  >Comparar</v-btn
+                >
+              </div>
             </v-form>
           </div>
         </v-col>
@@ -157,14 +159,14 @@ export default {
   },
   data: () => ({
     formData: {
-      mig: 1,
-      ib_230: 1,
-      el_230: 2,
-      ct_230: null,
-      at: 2,
-      ct_138: null,
-      el_138: 1,
-      ib_138: 1,
+      MIG: 1,
+      IB230: 1,
+      EL230: 2,
+      CT230: null,
+      AT: 2,
+      CT138: null,
+      EL138: 1,
+      IB138: 1,
     },
     valid: false,
     emailRules: [
@@ -179,8 +181,21 @@ export default {
     },
     send() {
       if (this.formValid) {
-        this.$emit("login", this.formData);
+        const data = this.format();
+        this.$emit("simular", data);
       }
+    },
+    format() {
+      this.formData.CT230 = this.formData.AT;
+      this.formData.CT138 = this.formData.AT;
+      const data = [];
+      for (const key in this.formData) {
+        data.push({
+          item: key,
+          quantity: this.formData[key],
+        });
+      }
+      return data;
     },
   },
   computed: {

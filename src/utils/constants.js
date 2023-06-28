@@ -4,4 +4,5 @@ export const ENDPOINTS = {
   RECUPERAR_SENHA: "user/request_reset_password/",
   NOVA_SENHA: "user/set_new_password/",
   LEAD: "lead/",
+  RESULT: "result/",
 };

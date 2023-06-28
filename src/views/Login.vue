@@ -37,7 +37,6 @@ export default {
     loadingModal: false,
   }),
   beforeCreate() {
-    console.log(this.$store.state.loggedIn);
     if (this.$store.state.loggedIn === "logado") {
       this.$router.push({ path: "/simulador" });
     }

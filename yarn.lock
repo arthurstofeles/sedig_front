@@ -5925,6 +5925,11 @@
   "resolved" "https://registry.npmjs.org/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz"
   "version" "2.3.4"
 
+"vue-hotjar@^1.4.0":
+  "integrity" "sha512-C/4lfjB1R3+eXiC+jSpNn3z0GWicpnADeRWpEHLdP2FSIi/AjupoIBikugHvGV334QYGUueXUyVZz6GHr+3eYQ=="
+  "resolved" "https://registry.npmjs.org/vue-hotjar/-/vue-hotjar-1.4.0.tgz"
+  "version" "1.4.0"
+
 "vue-loader@^17.0.0":
   "integrity" "sha512-zAjrT+TNWTpgRODxqDfzbDyvuTf5kCP9xmMk8aspQKuYNnTY2r0XK/bHu1DKLpSpk0I6fkQph5OLKB7HcRIPZw=="
   "resolved" "https://registry.npmjs.org/vue-loader/-/vue-loader-17.1.0.tgz"
