@@ -118,7 +118,7 @@
               </v-slider>
 
               <v-switch
-                v-model="formData.EL230"
+                v-model="formData.IB230"
                 label="Interligação de barras 230 kV, barra dupla 4 chaves"
                 color="sedig_green"
               ></v-switch>

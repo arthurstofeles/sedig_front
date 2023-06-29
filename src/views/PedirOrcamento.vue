@@ -1,6 +1,9 @@
 <template>
   <div class="orcamento">
     <Headers />
+    <v-btn text color="white" x-small class="my-4 ml-4" to="/simulador">
+      <v-icon small>mdi-arrow-left-thin</v-icon> Voltar
+    </v-btn>
     <FormularioOrcamento :loading="loading" @contato="contato" />
     <AlertError :alertError="error" :messageError="message" />
   </div>

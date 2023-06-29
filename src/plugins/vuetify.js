@@ -9,7 +9,8 @@ export default new Vuetify({
       light: {
         /* eslint-disable */
         sedig_blue: "#370EA3",
-        sedig_green: "#00D745"
+        sedig_green: "#00D745",
+        sedig_yellow: "#ffc30d"
       },
     },
   },

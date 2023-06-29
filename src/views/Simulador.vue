@@ -40,6 +40,7 @@ export default {
           price_tradicional: this.somarPrecos(this.resultado, "price_tradicional"),
         };
         this.resultado.push(total);
+        this.resultado[0].item = "MGI²";
         this.loadingBtn = false;
         this.scrollParaResultado();
       } catch (e) {

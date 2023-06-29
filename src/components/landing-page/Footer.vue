@@ -9,13 +9,13 @@
             <br />
             <a href="mailto:">contato@connectee.com.br</a>
           </div>
-          <div class="right">
+          <!-- <div class="right">
             <h4>Transparência</h4>
             <a href="">Termos de uso (política de privacidade)</a>
             <br />
             <a href="">LGPD</a>
-          </div>
-          <div class="social">
+          </div> -->
+          <!-- <div class="social">
             <v-btn icon>
               <v-icon color="#ffc30d" large> mdi-linkedin </v-icon>
             </v-btn>
@@ -25,7 +25,7 @@
             <v-btn icon>
               <v-icon color="#ffc30d" large> mdi-facebook </v-icon>
             </v-btn>
-          </div>
+          </div> -->
         </div>
       </v-row>
     </v-container>

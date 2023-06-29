@@ -7,20 +7,18 @@
           <template v-slot:default>
             <thead>
               <tr>
-                <th class="text-center">Items¹</th>
-                <!-- <th class="text-left">Quantidade</th> -->
-                <th class="text-center">Tradicional (R$)</th>
-                <th class="text-center">Digital (R$)</th>
+                <th class="text-left">Items¹</th>
+                <th class="text-left">Tradicional (R$)</th>
+                <th class="text-left">Digital (R$)</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="item in resultado" :key="item.name">
-                <td class="font-weight-medium sedig_green--text text-center itens">
+                <td class="font-weight-medium sedig_green--text text-left itens">
                   {{ item.item }}
                 </td>
-                <!-- <td>{{ item.quantity }}</td> -->
-                <td class="text-center tradicional">{{ formatarMoeda(item.price_tradicional) }}</td>
-                <td class="font-weight-black sedig_blue--text subtitle-1 text-center digital">
+                <td class="text-left tradicional">{{ formatarMoeda(item.price_tradicional) }}</td>
+                <td class="font-weight-black sedig_blue--text subtitle-1 text-left digital">
                   {{ formatarMoeda(item.price_digital) }}
                 </td>
               </tr>
