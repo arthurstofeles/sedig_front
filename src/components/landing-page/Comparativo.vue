@@ -23,7 +23,9 @@
         </v-col>
       </v-row>
       <div class="d-flex justify-center divisor">
-        <p class="text-uppercase white--text py-2 px-8 font-weight-medium sedig_yellow">Total</p>
+        <p class="text-uppercase sedig_blue--text py-2 px-8 font-weight-medium sedig_yellow">
+          Total
+        </p>
       </div>
       <v-row no-gutters>
         <v-col cols="6" class="digital">
@@ -57,7 +59,7 @@
         </v-col>
       </v-row>
       <div class="d-flex justify-center divisor">
-        <p class="text-uppercase white--text py-2 px-8 font-weight-medium sedig_yellow">
+        <p class="text-uppercase sedig_blue--text py-2 px-8 font-weight-medium sedig_yellow">
           Equipamentos
         </p>
       </div>
@@ -84,7 +86,9 @@
         </v-col>
       </v-row>
       <div class="d-flex justify-center divisor">
-        <p class="text-uppercase white--text py-2 px-8 font-weight-medium sedig_yellow">+ info</p>
+        <p class="text-uppercase sedig_blue--text py-2 px-8 font-weight-medium sedig_yellow">
+          + info
+        </p>
       </div>
       <v-row no-gutters>
         <p class="sedig_yellow--text body-1 body-1">
@@ -256,7 +260,7 @@ export default {
       bottom: -48px;
     }
     @media screen and (min-width: 768px) {
-      bottom: -50px;
+      bottom: -60px;
       max-height: 300px;
     }
     @media screen and (min-width: 1025px) {
