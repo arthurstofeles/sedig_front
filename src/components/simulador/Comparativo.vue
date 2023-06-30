@@ -7,7 +7,7 @@
           <template v-slot:default>
             <thead>
               <tr>
-                <th class="text-left">Items¹</th>
+                <th class="text-left">Itens¹</th>
                 <th class="text-left">Tradicional (R$)</th>
                 <th class="text-left">Digital (R$)</th>
               </tr>
@@ -15,7 +15,12 @@
             <tbody>
               <tr v-for="item in resultado" :key="item.name">
                 <td class="font-weight-medium sedig_green--text text-left itens">
-                  {{ item.item }}
+                  <v-tooltip bottom color="sedig_green"
+                    ><template v-slot:activator="{ on, attrs }">
+                      <span v-bind="attrs" v-on="on">{{ item.item }}</span>
+                    </template>
+                    {{ item.toltip }}
+                  </v-tooltip>
                 </td>
                 <td class="text-left tradicional">{{ formatarMoeda(item.price_tradicional) }}</td>
                 <td class="font-weight-black sedig_blue--text subtitle-1 text-left digital">

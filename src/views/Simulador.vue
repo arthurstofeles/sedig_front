@@ -21,6 +21,32 @@ export default {
     loadingBtn: false,
     error: false,
     messageError: "Ocorreu um erro, tente novamente!",
+    toltips: [
+      {
+        MIG: "Módulo de infraestrutura geral completo",
+      },
+      {
+        IB230: "Interligação de barras 230 kV, barra dupla 4 chaves",
+      },
+      {
+        EL230: "Entrada de linha 230 kV",
+      },
+      {
+        CT230: "Conexão de transformador 230 kV",
+      },
+      {
+        AT: "Autotransformador 230-138-13,8 kV, 40 MVA",
+      },
+      {
+        CT138: "Conexão de transformador 138 kV",
+      },
+      {
+        EL138: "Entrada de linha 138 kV",
+      },
+      {
+        IB138: " Interligação de barras 138 kV, barra principal e transferência",
+      },
+    ],
   }),
   beforeCreate() {
     if (this.$store.state.loggedIn === "deslogado") {
@@ -36,9 +62,13 @@ export default {
         this.resultado = data;
         const total = {
           item: "Total",
+          toltip: "Soma de todos os valores",
           price_digital: this.somarPrecos(this.resultado, "price_digital"),
           price_tradicional: this.somarPrecos(this.resultado, "price_tradicional"),
         };
+        this.resultado.forEach((element, index) => {
+          element.toltip = this.toltips[index][element.item];
+        });
         this.resultado.push(total);
         this.resultado[0].item = "MGI²";
         this.loadingBtn = false;

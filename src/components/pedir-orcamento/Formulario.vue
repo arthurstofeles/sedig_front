@@ -5,7 +5,7 @@
         <v-col cols="12"
           ><h2>Nós vamos até você!</h2>
           <p>
-            Nós iremos até você, de acordo com a sua preferência, para continuarmos o trablaho e
+            Nós iremos até você, de acordo com a sua preferência, para continuarmos o trabalho e
             montarmos o orçamento preciso da sua implementação ou adequação, e esperamos que possa
             desfrutar em breve de todas as vantagens das suibestações digitais.
           </p>
