@@ -16,6 +16,13 @@ services:
           yarn serve
           yarn global add @vue/cli"
 
+# networks:
+#   default:
+#       name: sedig_front
+
 networks:
-  default:
-      name: sedig_front
+  sedig_front:
+    driver: bridge
+    name: sedig_front
+    driver_opts:
+      com.docker.compose.network: "sedig_front" # Certifique-se de que a etiqueta esteja definida corretamente aqui

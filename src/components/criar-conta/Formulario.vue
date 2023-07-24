@@ -5,10 +5,10 @@
         <v-col :sm="12" :md="6" class="mx-auto">
           <div class="rounded-xl pa-6 white">
             <h2>Cadastrar</h2>
-            <p>
+            <!-- <p>
               Norem ipsum dolor sit amet, consectetur adipiscing elit. Norem ipsum dolor sit amet,
               consectetur adipiscing elit. Norem ipsum dolor sit amet, consectetur adipiscing elit.
-            </p>
+            </p> -->
             <v-form ref="form" v-model="valid" lazy-validation class="mt-6">
               <v-text-field
                 v-model="formData.first_name"

@@ -5,9 +5,9 @@
         <div class="links">
           <div class="left">
             <h4>Fale com a gente</h4>
-            <a href="tel:+">(21) 91111-1111</a>
+            <a>(61) 99222-6646</a>
             <br />
-            <a href="mailto:">contato@connectee.com.br</a>
+            <a href="mailto:subestacoesdigitais@gmail.com">subestacoesdigitais@gmail.com</a>
           </div>
           <!-- <div class="right">
             <h4>Transparência</h4>

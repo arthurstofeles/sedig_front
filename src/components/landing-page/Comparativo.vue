@@ -195,19 +195,19 @@ export default {
     ],
     convencionalList: [
       {
-        name: "MIG, Módulo de Infraestrutura Geral: R$ 7.700.000,00",
+        name: "MIG, Módulo de Infraestrutura Geral: R$ 7.970.000,00",
         icon: "mdi-close-circle",
       },
       {
-        name: "IB230, Módulo de Conexão: R$ 4.350.000,00",
+        name: "IB230, Módulo de Conexão: R$ 4.580.000,00",
         icon: "mdi-close-circle",
       },
       {
-        name: "EL230, Módulo de Conexão: R$ 6.020.000,00",
+        name: "EL230, Módulo de Conexão: R$ 6.630.000,00",
         icon: "mdi-close-circle",
       },
       {
-        name: "CT230, Módulo de Conexão: R$ 5.620.000,00",
+        name: "CT230, Módulo de Conexão: R$ 5.900.000,00",
         icon: "mdi-close-circle",
       },
       {
@@ -215,15 +215,15 @@ export default {
         icon: "mdi-close-circle",
       },
       {
-        name: "IB138, Módulo de Conexão: R$ 2.940.000,00",
+        name: "IB138, Módulo de Conexão: R$ 3.120.000,00",
         icon: "mdi-close-circle",
       },
       {
-        name: "EL138, Módulo de Conexão: R$ 4.010.000,00",
+        name: "EL138, Módulo de Conexão: R$ 4.230.000,00",
         icon: "mdi-close-circle",
       },
       {
-        name: "CT138, Módulo de Conexão:R$ 3.810.000,00",
+        name: "CT138, Módulo de Conexão:R$ 4.230.000,00",
         icon: "mdi-close-circle",
       },
     ],
