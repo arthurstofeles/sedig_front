@@ -3,10 +3,10 @@
     <v-container>
       <v-row no-gutters>
         <h2>Simulador Comparativo</h2>
-        <p>
+        <!-- <p>
           Phasellus rhoncus est nunc, in laoreet nulla egestas ut. Praesent convallis sodales dui,
           nec ultrices risus interdum id. Aliquam placerat ex at lorem semper fringilla.
-        </p>
+        </p> -->
         <v-col :sm="12" :md="12" class="mx-auto">
           <div class="rounded-xl pa-6 white">
             <v-form ref="form" v-model="valid" lazy-validation class="mt-6">

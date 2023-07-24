@@ -8,11 +8,11 @@
             Gostaria de saber mais detalhes sobre os benefícios da subestação digital, ou quem sabe
             fazer um orçamento com a gente?
           </p>
-          <p>
+          <!-- <p>
             Entre em contato com a gente através do e-mail contato@sedig.com.br ou no telefone (xx)
             xxxxx-xxxx (WhatsApp). Caso prefira, coloque seu e-mail ou telefone (com WhatsApp)
             abaixo, que entraremos em contato com você.
-          </p>
+          </p> -->
           <v-form ref="form" v-model="valid" lazy-validation class="mt-6">
             <v-text-field
               v-model="formData.email"
